@@ -1,9 +1,16 @@
 package gl.stockers.model;
 
 import java.util.Scanner;
-
 import gl.stockers.service.BinarySearch;
 import gl.stockers.service.Sort;
+
+/**
+ * This class holds all shares data in an array. 
+ * All operations related to the share records are managed in this class.
+ * For searching and sorting, it makes use of other classes. 
+ * 
+ * @author Shain Joy
+ */
 
 public class Records {
 	Scanner sc = new Scanner(System.in);
@@ -13,6 +20,8 @@ public class Records {
 	Share[] shares;
 	Share share;
 	
+	// This method allows user to enter a share price and search it in the list
+	// If array is not in ascending order, it sorts before search.
 	public void searchPrice() {
 		System.out.println("\nEnter the key value");
 		double price = sc.nextDouble();
@@ -28,6 +37,8 @@ public class Records {
 		}
 	}
 	
+	// Counting and displaying total no of companies for which 
+	// stock prices declined.
 	public void priceIncreases() {
 		int reslt = 0;
 		for (Share stk: shares) {
@@ -38,6 +49,8 @@ public class Records {
 		System.out.println("\nTotal no of companies whose stock price rose today : " + reslt);	
 	}
 	
+	// Counting and displaying total no of companies for which 
+	// stock prices rose.
 	public void priceDecreases() {
 		int reslt = 0;
 		for (Share stk: shares) {
@@ -48,6 +61,8 @@ public class Records {
 		System.out.println("\nTotal no of companies whose stock price declined today : " + reslt);
 	}
 
+	// This method sorts the array in Descending order and 
+	// uses display method to print the same
 	public void dispDescendingOrder() {
 		stkSort.descending(shares);
 		System.out.println("\nStock prices in descending order are :");
@@ -55,6 +70,7 @@ public class Records {
 		aryInAscending = false;
 	}
 
+	// Sorting in ascending order and prints the prices
 	public void dispAscendingOrder() {
 		stkSort.ascending(shares);
 		System.out.println("\nStock prices in ascending order are :");
@@ -62,6 +78,8 @@ public class Records {
 		aryInAscending = true;
 	}
 	
+	// This method simply prints out all elements' prices
+	// in the same order, as it is in the array.
 	public void display() {
 		for (Share stk: shares) {
 			System.out.print(stk.price + " ");
@@ -69,6 +87,9 @@ public class Records {
 		System.out.println();
 	}
 	
+	
+	// This method receives the user input of each share 
+	// and stores into an array as share objects
 	public void populate(int noOfShares) {
 		shares = new Share[noOfShares];
 		double price;

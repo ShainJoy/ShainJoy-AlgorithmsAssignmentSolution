@@ -2,6 +2,13 @@ package gl.stockers.service;
 
 import gl.stockers.model.Share;
 
+/**
+ * It uses 'Merge Sort' algorithm for sorting operation of array of shares.
+ * Two public methods are there for ascending and descending sort orders.
+ * 
+ * @author Shain Joy
+ */
+
 public class Sort {
 	
 	public void ascending(Share[] ary) {
